@@ -83,47 +83,67 @@ tr:last-child td{border-bottom:none;}tr:hover td{background:#f8fbff;}
 .egrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:18px;}
 #toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#0a1628;color:white;padding:10px 20px;border-radius:10px;font-size:0.83rem;font-weight:600;z-index:999;display:none;box-shadow:0 4px 20px rgba(0,0,0,0.3);}
 
-/* RATINGS SECTION */
-#ratingsSection { display:none; }
-.rating-card {
-  background:white;border-radius:14px;padding:16px 18px;
-  margin-bottom:10px;box-shadow:0 2px 10px rgba(3,105,161,0.07);
-  border:1px solid #e2e8f0;display:flex;align-items:flex-start;gap:12px;
-  transition:all 0.2s;
-}
-.rating-card:hover { box-shadow:0 4px 20px rgba(3,105,161,0.12); }
-.rc-avatar { width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;font-weight:800;color:white;flex-shrink:0; }
-.rc-body { flex:1;min-width:0; }
-.rc-top { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px; }
-.rc-name { font-size:0.88rem;font-weight:700;color:#0a1628; }
-.rc-date { font-size:0.7rem;color:#64748b; }
-.rc-stars { color:#f59e0b;font-size:0.85rem;margin-bottom:6px; }
-.rc-text { font-size:0.82rem;color:#64748b;line-height:1.5; }
-.rc-tag { display:inline-block;background:#e0f2fe;color:#0369a1;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:100px;margin-bottom:6px; }
-.rc-actions { display:flex;gap:6px;margin-top:8px; }
-.btn-edit-r { padding:5px 12px;border-radius:8px;background:#e0f2fe;color:#0369a1;border:none;font-family:"DM Sans",sans-serif;font-size:0.72rem;font-weight:700;cursor:pointer;transition:all 0.15s; }
-.btn-edit-r:hover { background:#0369a1;color:white; }
-.btn-del-r { padding:5px 12px;border-radius:8px;background:#fee2e2;color:#dc2626;border:none;font-family:"DM Sans",sans-serif;font-size:0.72rem;font-weight:700;cursor:pointer;transition:all 0.15s; }
-.btn-del-r:hover { background:#dc2626;color:white; }
-.rating-summary-bar { background:white;border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 2px 10px rgba(3,105,161,0.07);border:1px solid #e2e8f0; }
-.rsb-top { display:flex;align-items:center;gap:16px;margin-bottom:14px; }
-.rsb-avg { font-size:2.4rem;font-weight:800;color:#0369a1;line-height:1; }
-.rsb-stars { color:#f59e0b;font-size:1.1rem;letter-spacing:1px; }
-.rsb-count { font-size:0.78rem;color:#64748b; }
+/* ── RATINGS ADMIN ── */
+#ratingsSection,#usersSection,#messagesSection,#settingsSection{display:none;}
+.rating-card{background:white;border-radius:14px;padding:16px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(3,105,161,0.07);border:1px solid #e2e8f0;display:flex;align-items:flex-start;gap:12px;transition:all 0.2s;}
+.rating-card:hover{box-shadow:0 4px 20px rgba(3,105,161,0.12);}
+.rc-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.88rem;font-weight:800;color:white;flex-shrink:0;}
+.rc-body{flex:1;min-width:0;}
+.rc-top2{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
+.rc-name2{font-size:0.85rem;font-weight:700;color:#0a1628;}
+.rc-date2{font-size:0.68rem;color:#64748b;}
+.rc-stars2{color:#f59e0b;font-size:0.85rem;margin-bottom:5px;}
+.rc-txt{font-size:0.8rem;color:#64748b;line-height:1.5;}
+.rc-tag2{display:inline-block;background:#e0f2fe;color:#0369a1;font-size:0.63rem;font-weight:700;padding:2px 8px;border-radius:100px;margin-bottom:5px;}
+.rc-acts{display:flex;gap:6px;margin-top:8px;}
+.btn-er{padding:5px 11px;border-radius:7px;background:#e0f2fe;color:#0369a1;border:none;font-size:0.7rem;font-weight:700;cursor:pointer;transition:all 0.15s;}
+.btn-er:hover{background:#0369a1;color:white;}
+.btn-dr{padding:5px 11px;border-radius:7px;background:#fee2e2;color:#dc2626;border:none;font-size:0.7rem;font-weight:700;cursor:pointer;transition:all 0.15s;}
+.btn-dr:hover{background:#dc2626;color:white;}
+.rat-sum{background:white;border-radius:14px;padding:18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(3,105,161,0.07);border:1px solid #e2e8f0;display:flex;align-items:center;gap:16px;}
+.rat-avg{font-size:2.4rem;font-weight:800;color:#0369a1;line-height:1;}
+.rat-stars{color:#f59e0b;font-size:1.1rem;}
+.rat-cnt{font-size:0.75rem;color:#64748b;margin-top:2px;}
+
+/* ── USERS TABLE ── */
+.user-card{background:white;border-radius:14px;padding:14px 16px;margin-bottom:8px;box-shadow:0 2px 10px rgba(3,105,161,0.07);border:1px solid #e2e8f0;display:flex;align-items:center;gap:12px;transition:all 0.2s;}
+.user-card:hover{box-shadow:0 4px 20px rgba(3,105,161,0.12);}
+.u-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;color:white;flex-shrink:0;}
+.u-info{flex:1;min-width:0;}
+.u-name{font-size:0.85rem;font-weight:700;color:#0a1628;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.u-email{font-size:0.7rem;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.u-date{font-size:0.68rem;color:#94a3b8;flex-shrink:0;}
+
+/* ── BROADCAST ── */
+.broadcast-box{background:white;border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(3,105,161,0.07);border:1px solid #e2e8f0;margin-bottom:14px;}
+.broadcast-box h3{font-size:0.9rem;font-weight:700;color:#0a1628;margin-bottom:14px;}
+.bc-textarea{width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-family:"DM Sans",sans-serif;font-size:0.88rem;color:#0a1628;resize:none;outline:none;min-height:100px;background:#f8fbff;transition:border-color 0.2s;}
+.bc-textarea:focus{border-color:#38bdf8;}
+.bc-btn{padding:11px 24px;background:linear-gradient(135deg,#0369a1,#06b6d4);color:white;border:none;border-radius:10px;font-family:"DM Sans",sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;margin-top:10px;transition:all 0.2s;}
+.bc-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(3,105,161,0.3);}
+
+/* ── SETTINGS ── */
+.setting-row{background:white;border-radius:14px;padding:16px 18px;margin-bottom:10px;box-shadow:0 2px 10px rgba(3,105,161,0.07);border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.sr-info h4{font-size:0.88rem;font-weight:700;color:#0a1628;margin-bottom:3px;}
+.sr-info p{font-size:0.72rem;color:#64748b;}
+.sr-toggle{width:44px;height:24px;border-radius:100px;background:#e2e8f0;position:relative;cursor:pointer;border:none;transition:background 0.3s;flex-shrink:0;}
+.sr-toggle.on{background:linear-gradient(90deg,#0369a1,#06b6d4);}
+.sr-toggle::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:white;top:3px;left:3px;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);box-shadow:0 2px 6px rgba(0,0,0,0.15);}
+.sr-toggle.on::after{transform:translateX(20px);}
 
 /* EDIT MODAL */
-.edit-modal-bg { display:none;position:fixed;inset:0;background:rgba(10,22,40,0.6);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center; }
-.edit-modal-bg.show { display:flex; }
-.edit-modal { background:white;border-radius:20px;padding:28px;max-width:440px;width:90%; }
-.em-title { font-size:1rem;font-weight:700;margin-bottom:18px;color:#0a1628; }
-.em-field { margin-bottom:14px; }
-.em-field label { display:block;font-size:0.72rem;font-weight:700;color:#64748b;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.3px; }
-.em-field input, .em-field textarea, .em-field select { width:100%;padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-family:"DM Sans",sans-serif;font-size:0.88rem;color:#0a1628;outline:none;transition:border-color 0.2s; }
-.em-field input:focus, .em-field textarea:focus, .em-field select:focus { border-color:#38bdf8; }
-.em-field textarea { min-height:80px;resize:vertical; }
-.em-actions { display:flex;gap:10px;margin-top:16px; }
-.em-save { flex:1;padding:12px;background:linear-gradient(135deg,#0369a1,#06b6d4);color:white;border:none;border-radius:10px;font-family:"DM Sans",sans-serif;font-weight:700;cursor:pointer; }
-.em-cancel { padding:12px 18px;background:#f1f5f9;border:none;border-radius:10px;font-family:"DM Sans",sans-serif;font-weight:600;color:#64748b;cursor:pointer; }
+.em-bg{display:none;position:fixed;inset:0;background:rgba(10,22,40,0.6);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center;}
+.em-bg.show{display:flex;}
+.em-box{background:white;border-radius:18px;padding:26px;max-width:420px;width:90%;}
+.em-title{font-size:0.95rem;font-weight:700;margin-bottom:16px;color:#0a1628;}
+.em-field{margin-bottom:12px;}
+.em-field label{display:block;font-size:0.7rem;font-weight:700;color:#64748b;margin-bottom:5px;text-transform:uppercase;letter-spacing:0.3px;}
+.em-field input,.em-field textarea,.em-field select{width:100%;padding:10px 13px;border:1.5px solid #e2e8f0;border-radius:10px;font-family:"DM Sans",sans-serif;font-size:0.86rem;color:#0a1628;outline:none;background:#f8fbff;transition:border-color 0.2s;}
+.em-field input:focus,.em-field textarea:focus,.em-field select:focus{border-color:#38bdf8;}
+.em-field textarea{min-height:80px;resize:vertical;}
+.em-acts{display:flex;gap:10px;margin-top:14px;}
+.em-save{flex:1;padding:11px;background:linear-gradient(135deg,#0369a1,#06b6d4);color:white;border:none;border-radius:10px;font-family:"DM Sans",sans-serif;font-weight:700;cursor:pointer;}
+.em-cancel{padding:11px 16px;background:#f1f5f9;border:none;border-radius:10px;font-family:"DM Sans",sans-serif;font-weight:600;color:#64748b;cursor:pointer;}
 
 </style>
 </head>
@@ -159,6 +179,8 @@ tr:last-child td{border-bottom:none;}tr:hover td{background:#f8fbff;}
       <div class="sbox c3"><div class="sico">✅</div><div class="snum" id="sa">0</div><div class="slbl">Approved</div></div>
       <div class="sbox c4"><div class="sico">❌</div><div class="snum" id="sr">0</div><div class="slbl">Rejected</div></div>
       <div class="sbox c5"><div class="sico">💰</div><div class="snum" id="se">₹0</div><div class="slbl">Earnings</div></div>
+      <div class="sbox c1"><div class="sico">⭐</div><div class="snum" id="sRating">0</div><div class="slbl">Avg Rating</div></div>
+      <div class="sbox c3"><div class="sico">👥</div><div class="snum" id="sUsers">0</div><div class="slbl">Users</div></div>
     </div>
     <div id="bookView">
       <div class="frow">
@@ -218,6 +240,7 @@ function load(){
   },e=>{document.getElementById("tb").innerHTML='<tr><td colspan="11" class="empty">❌ '+e.message+'</td></tr>';});
 }
 function us(){
+  updateExtraStats();
   const t=all.length,p=all.filter(b=>b.status==="pending").length,
     a=all.filter(b=>b.status==="approved").length,r=all.filter(b=>b.status==="rejected").length,
     e=all.filter(b=>b.status==="approved").reduce((s,b)=>s+(b.amount||0),0);
@@ -279,22 +302,16 @@ function sw(v,el){
   document.querySelectorAll(".sb-item").forEach(i=>i.classList.remove("active"));el.classList.add("active");
   const t={all:"📋 All Bookings",pending:"⏳ Pending",approved:"✅ Approved",rejected:"❌ Rejected",earnings:"💰 Earnings"};
   document.getElementById("ptitle").textContent=t[v];
-  if(v==="earnings"){
-    document.getElementById("bookView").style.display="none";
-    document.getElementById("earnSec").style.display="none";
-    document.getElementById("ratingsSection").style.display="none";
-    document.getElementById("earnSec").style.display="block";
-  } else if(v==="ratings"){
-    document.getElementById("bookView").style.display="none";
-    document.getElementById("earnSec").style.display="none";
-    document.getElementById("ratingsSection").style.display="block";
-    loadRatings();
-  } else {
-    document.getElementById("bookView").style.display="block";
-    document.getElementById("earnSec").style.display="none";
-    document.getElementById("ratingsSection").style.display="none";
-    cf=v==="all"?"all":v;rt();
-  }
+  const allSecs=['bookView','earnSec','ratingsSection','usersSection','messagesSection','settingsSection'];
+  allSecs.forEach(s=>{const el=document.getElementById(s);if(el)el.style.display='none';});
+  const titles={all:'📋 All Bookings',pending:'⏳ Pending',approved:'✅ Approved',rejected:'❌ Rejected',earnings:'💰 Earnings',ratings:'⭐ Ratings',users:'👥 Users',messages:'📢 Broadcast',settings:'⚙️ Settings'};
+  document.getElementById('ptitle').textContent=titles[v]||'📋 Bookings';
+  if(v==='earnings'){document.getElementById('earnSec').style.display='block';}
+  else if(v==='ratings'){document.getElementById('ratingsSection').style.display='block';loadRatings();}
+  else if(v==='users'){document.getElementById('usersSection').style.display='block';loadUsers();}
+  else if(v==='messages'){document.getElementById('messagesSection').style.display='block';loadBroadcasts();}
+  else if(v==='settings'){document.getElementById('settingsSection').style.display='block';}
+  else{document.getElementById('bookView').style.display='block';cf=v==='all'?'all':v;rt();}
 }
 function doLogout(){if(confirm("Logout?"))auth.signOut().then(()=>window.location.href="login.html");}
 function toast(m){const t=document.getElementById("toast");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",2500);}
